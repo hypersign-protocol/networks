@@ -34,7 +34,7 @@ git clone https://github.com/hypersign-protocol/hid-node.git
 - Build the node
 ```
 cd hid-node
-make build
+make install
 ```
 
 - Run the following to check if the node is successfully installed
