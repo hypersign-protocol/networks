@@ -89,7 +89,7 @@ hid-noded gentx <key-name> <stake-amount-in-uhid> \
 --commission-max-change-rate=0.01 \
 --commission-max-rate=1.0 \
 --commission-rate=0.07 \
---min-self-delegation=10000000000 \
+--min-self-delegation=100000000000 \
 --details="XXXXXXXX" \
 --security-contact="XXXXXXXX" \
 --website="XXXXXXXX"
