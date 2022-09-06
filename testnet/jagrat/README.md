@@ -81,7 +81,7 @@ cat $HOME/.hid-node/config/genesis.json | jq '.app_state["ssi"]["chain_namespace
 ```
 hid-noded add-genesis-account <key-name> 10000000000000uhid
 ```
-- Create a gentx transaction. The `<stake-amount-in-uhid>` should be in `uhid`. Example: `100000000000uhid`
+- Create a gentx transaction. The `<stake-amount-in-uhid>` should be in `uhid`. Example: `100100000000uhid`
 ```
 hid-noded gentx <key-name> <stake-amount-in-uhid> \
 --chain-id jagrat \
