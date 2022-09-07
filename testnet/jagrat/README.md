@@ -107,15 +107,31 @@ hid-noded gentx <key-name> <stake-amount-in-uhid> \
 
 ### After Final Genesis Release
 
+> Cosmovisor is a tool which will enable automatic upgrade of a blockchain, once a software upgrade governance proposal is passed. More information on Cosmovisor [here](https://docs.cosmos.network/v0.45/run-node/cosmovisor.html).
+
+- Download and Install Cosmovisor
+```
+wget https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.2.0/cosmovisor-v1.2.0-linux-amd64.tar.gz && tar -C /usr/local/bin/ -xzf cosmovisor-v1.2.0-linux-amd64.tar.gz
+```
+- Export the following environment variables
+```
+export DAEMON_PATH=<complete path of hid-noded binary>
+export DAEMON_HOME=$HOME/.hid-node
+```
+- Create a `cosmovisor` and copy the existing blockchain binary to the following location
+```
+mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin
+cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
+```
 - Once the `final_genesis.json` file is published, replace the contents of your `${HOME}/.hid-node/config/genesis.json` with `testnet/jagrat/final_genesis.json`.
 - Copy all the persistent peers present in `testnet/jagrat/final_peers.json` and paste it in the attribute `persistent_peers`, present in the `${HOME}/.hid-node/config/config.toml` file.
 - Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml`. Example value: `10uhid` 
-- Start node
+- Start node with Cosmovisor
 ```sh
-hid-noded start
+cosmovisor run start
 ```
 
-### Validator Setup (Post Genesis Stage)
+## Validator Setup (Post Genesis Stage)
 
 - Follow the steps to install `hid-node` binary [here](#installation-steps)
 - Initialize node
