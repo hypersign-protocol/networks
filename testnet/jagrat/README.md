@@ -128,16 +128,17 @@ cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
 - Copy all the persistent peers present in `testnet/jagrat/final_peers.json` and paste it in the attribute `persistent_peers`, present in the `${HOME}/.hid-node/config/config.toml` file.
 - Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml`. Example value: `0.02uhid` 
 
-**Run Node using Cosmosvisor**
+**Run Node using Cosmovisor**
 
-You can run the hid-node in either of the following ways:
+You can run the `hid-node` in either of the following ways:
 - Terminal
    - Run the following to start `hid-node` in terminal
    ```sh
    cosmovisor run start
    ```
 - System Service
-   - Add the [Cosmosvisor system service file](https://github.com/hypersign-protocol/hid-node/blob/main/contrib/hidnoded-cosmovisor.service) to `/etc/systemd/system` directory.
+   - Change directory: `cd /etc/systemd/system`
+   - Add the [Cosmovisor system service file](https://github.com/hypersign-protocol/hid-node/blob/main/contrib/hidnoded-cosmovisor.service) to `/etc/systemd/system` directory.
    - Open the system service file and make necessary changes in line 7, which will specify your `hid-node` config path.
    - Reload service files: `sudo systemctl daemon-reload`
    - To enable your service on every reboot: `sudo systemctl enable hidnoded-cosmovisor.service`
@@ -169,10 +170,25 @@ export DAEMON_HOME=$HOME/.hid-node
 mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin
 cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
 ```
-- Start node using Cosmovisor
-```shell
-cosmovisor run start
-```
+
+**Run Node using Cosmovisor**
+
+- You can run the `hid-node` in either of the following ways:
+   - Terminal
+      - Run the following to start `hid-node` in terminal
+      ```sh
+      cosmovisor run start
+      ```
+   - System Service
+      - Change directory: `cd /etc/systemd/system`
+      - Add the [Cosmovisor system service file](https://github.com/hypersign-protocol/hid-node/blob/main/contrib/hidnoded-cosmovisor.service) to `/etc/systemd/system` directory.
+      - Open the system service file and make necessary changes in line 7, which will specify your `hid-node` config path.
+      - Reload service files: `sudo systemctl daemon-reload`
+      - To enable your service on every reboot: `sudo systemctl enable hidnoded-cosmovisor.service`
+      - To start the service: `sudo systemctl start hidnoded-cosmovisor.service`
+      - To check the status of service: `sudo systemctl status hidnoded-cosmovisor.service`
+      - To restart the service: `sudo systemctl restart hidnoded-cosmovisor.service`
+
 - Generate keys by either running `hid-noded keys add <key-name>` or `hid-noded keys add <key-name> --recover` to regenerate keys with your [BIP39](https://github.com/bitcoin/bips/tree/master/bip-0039) mnemonic
 - Acquire some $HID
 - Send a validator creation transaction
