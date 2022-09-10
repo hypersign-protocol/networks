@@ -115,6 +115,7 @@ wget https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.2.0/
 ```
 - Export the following environment variables
 ```
+export DAEMON_NAME=hid-noded
 export DAEMON_PATH=<complete path of hid-noded binary>
 export DAEMON_HOME=$HOME/.hid-node
 ```
@@ -126,10 +127,23 @@ cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
 - Once the `final_genesis.json` file is published, replace the contents of your `${HOME}/.hid-node/config/genesis.json` with `testnet/jagrat/final_genesis.json`.
 - Copy all the persistent peers present in `testnet/jagrat/final_peers.json` and paste it in the attribute `persistent_peers`, present in the `${HOME}/.hid-node/config/config.toml` file.
 - Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml`. Example value: `0.02uhid` 
-- Start node using Cosmovisor
-```sh
-cosmovisor run start
-```
+
+**Run Node using Cosmosvisor**
+
+You can run the hid-node in either of the following ways:
+- Terminal
+   - Run the following to start `hid-node` in terminal
+   ```sh
+   cosmovisor run start
+   ```
+- System Service
+   - Add the [Cosmosvisor system service file](https://github.com/hypersign-protocol/hid-node/blob/main/contrib/hidnoded-cosmovisor.service) to `/etc/systemd/system` directory.
+   - Open the system service file and make necessary changes in line 7, which will specify your `hid-node` config path.
+   - Reload service files: `sudo systemctl daemon-reload`
+   - To enable your service on every reboot: `sudo systemctl enable hidnoded-cosmovisor.service`
+   - To start the service: `sudo systemctl start hidnoded-cosmovisor.service`
+   - To check the status of service: `sudo systemctl status hidnoded-cosmovisor.service`
+   - To restart the service: `sudo systemctl restart hidnoded-cosmovisor.service`
 
 ## Validator Setup (Post Genesis Stage)
 
