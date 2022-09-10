@@ -103,7 +103,7 @@ hid-noded gentx <key-name> <stake-amount-in-uhid> \
 - Form the complete node address in the format: `<node-id>@<publicly-reachable-ip>:<p2p-port>`. Example: `31a2699a153e60fcdbed8a47e060c1e1d4751616@<publicly-reachable-ip>:26656`. Note: The default P2P port is 26656. If you want to change the port configuration, open `${HOME}/.hid-node/config/config.toml` and under `[p2p]`, change the port in `laddr` attribute.
 - Paste the complete node address from the last step into the file `testnet/jagrat/peers/peer-<validator-name-without-spaces>.txt`.
 - Create a Pull Request to the `main` branch of the [repository](https://github.com/hypersign-protocol/networks)
->**NOTE:** Pull Request will be merged by the maintainers to confirm the inclusion of the validator at the genesis. The final genesis file will be published under the file `testnet/jagrat/final_genesis.json`.
+>**NOTE:** Pull Request will be merged by the maintainers to confirm the inclusion of the validator at the genesis. The final genesis file will be published under the file `testnet/jagrat/final_genesis.json`. The final peers list will be published under the file `testnet/jagrat/final_peers.txt`.
 
 ### After Final Genesis Release
 
@@ -125,7 +125,7 @@ mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin
 cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
 ```
 - Once the `final_genesis.json` file is published, replace the contents of your `${HOME}/.hid-node/config/genesis.json` with `testnet/jagrat/final_genesis.json`.
-- Copy all the persistent peers present in `testnet/jagrat/final_peers.json` and paste it in the attribute `persistent_peers`, present in the `${HOME}/.hid-node/config/config.toml` file.
+- Copy all the persistent peers present in `testnet/jagrat/final_peers.txt` and paste it in the attribute `persistent_peers`, present in the `${HOME}/.hid-node/config/config.toml` file.
 - Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml`. Example value: `0.02uhid` 
 
 **Run Node using Cosmovisor**
