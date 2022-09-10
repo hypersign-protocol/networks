@@ -1,0 +1,61 @@
+{
+  "body": {
+    "messages": [
+      {
+        "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+        "description": {
+          "moniker": " Lavender.Five Nodes 🐝",
+          "identity": "F87ADDB700C0CC94",
+          "website": "https://www.lavenderfive.com/",
+          "security_contact": "hello@lavenderfive.com",
+          "details": "100% soft slash protected. We strive to make the cosmos a more holistically wholesome place. Come say Hi! https://twitter.com/lavender_five https://t.me/LavenderFive https://discord.gg/RsSvF8jjrz"
+        },
+        "commission": {
+          "rate": "0.050000000000000000",
+          "max_rate": "0.100000000000000000",
+          "max_change_rate": "0.050000000000000000"
+        },
+        "min_self_delegation": "1",
+        "delegator_address": "hid14qekdkj2nmmwea4ufg9n002a3pud23y883x6y4",
+        "validator_address": "hidvaloper14qekdkj2nmmwea4ufg9n002a3pud23y8cn3sv2",
+        "pubkey": {
+          "@type": "/cosmos.crypto.ed25519.PubKey",
+          "key": "TooXAyKtH1EsuGaaH7Igm5WmQ0PYzP1e05KeeVkTnE0="
+        },
+        "value": {
+          "denom": "uhid",
+          "amount": "100000000000"
+        }
+      }
+    ],
+    "memo": "1529153f78a17a1e61e82b345518fda03ca0511c@192.168.0.5:26656",
+    "timeout_height": "0",
+    "extension_options": [],
+    "non_critical_extension_options": []
+  },
+  "auth_info": {
+    "signer_infos": [
+      {
+        "public_key": {
+          "@type": "/cosmos.crypto.secp256k1.PubKey",
+          "key": "AgDrjXJ1+/lwJdf+fekEXKwLpA30N7F/Z3ESi/Sn7Rw4"
+        },
+        "mode_info": {
+          "single": {
+            "mode": "SIGN_MODE_DIRECT"
+          }
+        },
+        "sequence": "0"
+      }
+    ],
+    "fee": {
+      "amount": [],
+      "gas_limit": "200000",
+      "payer": "",
+      "granter": ""
+    }
+  },
+  "signatures": [
+    "nyNmclaMqAvMf1aV/kFVssW8dXiwfshLlyy/AiQTGnNObIY+txkbzQ4nGZ/sbDwS2zKcyj7hRx/7zPQQVmBVVg=="
+  ]
+}
