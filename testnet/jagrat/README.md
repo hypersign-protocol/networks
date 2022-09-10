@@ -100,7 +100,7 @@ hid-noded gentx <key-name> <stake-amount-in-uhid> \
 - Create a file `peers-<validator-name>.txt` under the `testnet/jagrat/peers` directory in the forked repo.
 - Run `echo "$(hid-noded tendermint show-node-id)@$(curl ifconfig.me)"` and copy your Node ID and publicly reachable IP address.
 - Form the complete node address in the format: `<node-id>@<publicly-reachable-ip>:<p2p-port>`. Example: `31a2699a153e60fcdbed8a47e060c1e1d4751616@<publicly-reachable-ip>:26656`. Note: The default P2P port is 26656.
-- Run `echo $(grep -A 3 "\[rpc\]" ~/.hid-node/config/config.toml | egrep -o ":[0-9]+")` to check your P2P port, If you want to change the port configuration, open `${HOME}/.hid-node/config/config.toml` and under `[p2p]`, change the port in `laddr` attribute.
+- Run `echo $(grep -A 3 "\[p2p\]" ~/.hid-node/config/config.toml | egrep -o ":[0-9]+")` to check your P2P port, If you want to change the port configuration, open `${HOME}/.hid-node/config/config.toml` and under `[p2p]`, change the port in `laddr` attribute.
 - Paste the complete node address from the last step into the file `testnet/jagrat/peers/peer-<validator-name-without-spaces>.txt`.
 - Create a Pull Request to the `main` branch of the [repository](https://github.com/hypersign-protocol/networks)
 >**NOTE:** Pull Request will be merged by the maintainers to confirm the inclusion of the validator at the genesis. The final genesis file will be published under the file `testnet/jagrat/final_genesis.json`.
