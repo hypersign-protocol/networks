@@ -103,7 +103,7 @@ hid-noded gentx <key-name> <stake-amount-in-uhid> \
 - Form the complete node address in the format: `<node-id>@<publicly-reachable-ip>:<p2p-port>`. Example: `31a2699a153e60fcdbed8a47e060c1e1d4751616@<publicly-reachable-ip>:26656`. Note: The default P2P port is 26656. If you want to change the port configuration, open `${HOME}/.hid-node/config/config.toml` and under `[p2p]`, change the port in `laddr` attribute.
 - Paste the complete node address from the last step into the file `testnet/jagrat/peers/peer-<validator-name-without-spaces>.txt`.
 - Create a Pull Request to the `main` branch of the [repository](https://github.com/hypersign-protocol/networks)
->**NOTE:** Pull Request will be merged by the maintainers to confirm the inclusion of the validator at the genesis. The final genesis file will be published under the file `testnet/jagrat/final_genesis.json`.
+>**NOTE:** Pull Request will be merged by the maintainers to confirm the inclusion of the validator at the genesis. The final genesis file will be published under the file `testnet/jagrat/final_genesis.json`. The final peers list will be published under the file `testnet/jagrat/final_peers.txt`.
 
 ### After Final Genesis Release
 
@@ -115,6 +115,7 @@ wget https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.2.0/
 ```
 - Export the following environment variables
 ```
+export DAEMON_NAME=hid-noded
 export DAEMON_PATH=<complete path of hid-noded binary>
 export DAEMON_HOME=$HOME/.hid-node
 ```
@@ -124,12 +125,26 @@ mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin
 cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
 ```
 - Once the `final_genesis.json` file is published, replace the contents of your `${HOME}/.hid-node/config/genesis.json` with `testnet/jagrat/final_genesis.json`.
-- Copy all the persistent peers present in `testnet/jagrat/final_peers.json` and paste it in the attribute `persistent_peers`, present in the `${HOME}/.hid-node/config/config.toml` file.
+- Copy all the persistent peers present in `testnet/jagrat/final_peers.txt` and paste it in the attribute `persistent_peers`, present in the `${HOME}/.hid-node/config/config.toml` file.
 - Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml`. Example value: `0.02uhid` 
-- Start node using Cosmovisor
-```sh
-cosmovisor run start
-```
+
+**Run Node using Cosmovisor**
+
+You can run the `hid-node` in either of the following ways:
+- Terminal
+   - Run the following to start `hid-node` in terminal
+   ```sh
+   cosmovisor run start
+   ```
+- System Service
+   - Change directory: `cd /etc/systemd/system`
+   - Add the [Cosmovisor system service file](https://github.com/hypersign-protocol/hid-node/blob/main/contrib/hidnoded-cosmovisor.service) to `/etc/systemd/system` directory.
+   - Open the system service file and make necessary changes in line 7, which will specify your `hid-node` config path.
+   - Reload service files: `sudo systemctl daemon-reload`
+   - To enable your service on every reboot: `sudo systemctl enable hidnoded-cosmovisor.service`
+   - To start the service: `sudo systemctl start hidnoded-cosmovisor.service`
+   - To check the status of service: `sudo systemctl status hidnoded-cosmovisor.service`
+   - To restart the service: `sudo systemctl restart hidnoded-cosmovisor.service`
 
 ## Validator Setup (Post Genesis Stage)
 
@@ -155,10 +170,25 @@ export DAEMON_HOME=$HOME/.hid-node
 mkdir -p $DAEMON_HOME/cosmovisor/genesis/bin
 cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
 ```
-- Start node using Cosmovisor
-```shell
-cosmovisor run start
-```
+
+**Run Node using Cosmovisor**
+
+- You can run the `hid-node` in either of the following ways:
+   - Terminal
+      - Run the following to start `hid-node` in terminal
+      ```sh
+      cosmovisor run start
+      ```
+   - System Service
+      - Change directory: `cd /etc/systemd/system`
+      - Add the [Cosmovisor system service file](https://github.com/hypersign-protocol/hid-node/blob/main/contrib/hidnoded-cosmovisor.service) to `/etc/systemd/system` directory.
+      - Open the system service file and make necessary changes in line 7, which will specify your `hid-node` config path.
+      - Reload service files: `sudo systemctl daemon-reload`
+      - To enable your service on every reboot: `sudo systemctl enable hidnoded-cosmovisor.service`
+      - To start the service: `sudo systemctl start hidnoded-cosmovisor.service`
+      - To check the status of service: `sudo systemctl status hidnoded-cosmovisor.service`
+      - To restart the service: `sudo systemctl restart hidnoded-cosmovisor.service`
+
 - Generate keys by either running `hid-noded keys add <key-name>` or `hid-noded keys add <key-name> --recover` to regenerate keys with your [BIP39](https://github.com/bitcoin/bips/tree/master/bip-0039) mnemonic
 - Acquire some $HID
 - Send a validator creation transaction
