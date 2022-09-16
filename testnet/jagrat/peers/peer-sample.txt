@@ -1,0 +1,1 @@
+<node-id>@<publicly-reachable-ip>:<p2p-port>
