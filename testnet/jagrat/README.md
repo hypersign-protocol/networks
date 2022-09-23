@@ -52,8 +52,6 @@ You can view the key address information using the command: `hid-noded keys list
 
 ## Validator Setup (Pre Genesis Stage)
 
-> Note: Some directories mentioned in the below steps will be created soon.
-
 ### Before Final Genesis Release
 
 - Initialize Node
@@ -97,12 +95,12 @@ hid-noded gentx <key-name> <stake-amount-in-uhid> \
 - Fork the [repository](https://github.com/hypersign-protocol/networks)
 - Copy the contents of `${HOME}/.hid-node/config/gentx/gentx-XXXXXXXX.json`.
 - Create a file `gentx-<validator-name-without-spaces>.json` under the `testnet/jagrat/gentxs` folder in the forked repo and paste the copied text from the last step into the file.
-- Create a file `peers-<validator-name>.txt` under the `testnet/jagrat/peers` directory in the forked repo.
+- Create a file `peer-<validator-name-without-spaces>.txt` under the `testnet/jagrat/peers` directory in the forked repo.
 - Run `hid-noded tendermint show-node-id` and copy your Node ID.
 - Run `ifconfig` or `curl ipinfo.io/ip` and copy your publicly reachable IP address.
 - Form the complete node address in the format: `<node-id>@<publicly-reachable-ip>:<p2p-port>`. Example: `31a2699a153e60fcdbed8a47e060c1e1d4751616@<publicly-reachable-ip>:26656`. Note: The default P2P port is 26656. If you want to change the port configuration, open `${HOME}/.hid-node/config/config.toml` and under `[p2p]`, change the port in `laddr` attribute.
 - Paste the complete node address from the last step into the file `testnet/jagrat/peers/peer-<validator-name-without-spaces>.txt`.
-- Create a Pull Request to the `main` branch of the [repository](https://github.com/hypersign-protocol/networks)
+- Create a Pull Request to the `master` branch of the [repository](https://github.com/hypersign-protocol/networks)
 >**NOTE:** Pull Request will be merged by the maintainers to confirm the inclusion of the validator at the genesis. The final genesis file will be published under the file `testnet/jagrat/final_genesis.json`. The final peers list will be published under the file `testnet/jagrat/final_peers.txt`.
 
 ### After Final Genesis Release
@@ -113,7 +111,7 @@ hid-noded gentx <key-name> <stake-amount-in-uhid> \
 ```
 wget https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.2.0/cosmovisor-v1.2.0-linux-amd64.tar.gz && tar -C /usr/local/bin/ -xzf cosmovisor-v1.2.0-linux-amd64.tar.gz
 ```
-- Export the following environment variables
+- Export the following environment variables needed by `cosmovisor`
 ```
 export DAEMON_NAME=hid-noded
 export DAEMON_PATH=<complete path of hid-noded binary>
@@ -126,7 +124,7 @@ cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
 ```
 - Once the `final_genesis.json` file is published, replace the contents of your `${HOME}/.hid-node/config/genesis.json` with `testnet/jagrat/final_genesis.json`.
 - Copy all the persistent peers present in `testnet/jagrat/final_peers.txt` and paste it in the attribute `persistent_peers`, present in the `${HOME}/.hid-node/config/config.toml` file.
-- Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml`. Example value: `0.02uhid` 
+- Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml` to `0.02uhid` 
 
 **Run Node using Cosmovisor**
 
@@ -136,6 +134,7 @@ You can run the `hid-node` in either of the following ways:
    ```sh
    cosmovisor run start
    ```
+   > Note: `cosmovisor` looks for the environment variable `DAEMON_NAME` and `DAEMON_HOME`. Make sure to run the above command in the same terminal window where the said environment variables are set.
 - System Service
    - Change directory: `cd /etc/systemd/system`
    - Add the [Cosmovisor system service file](https://github.com/hypersign-protocol/hid-node/blob/main/contrib/hidnoded-cosmovisor.service) to `/etc/systemd/system` directory.
@@ -155,13 +154,14 @@ hid-noded init <validator-name>
 ```
 - Replace the contents of your `${HOME}/.hid-noded/config/genesis.json` with that of `testnet/jagrat/final_genesis.json` from the `master` branch of [repository](https://github.com/hypersign-protocol/networks).
 - Add `persistent_peers` or `seeds` in `${HOME}/.hid-noded/config/config.toml` from `testnet/jagrat/final_peers.json` from the `master` branch of [repository](https://github.com/hypersign-protocol/networks).
-- Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml`. Example value: `0.02uhid`
+- Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml` to `0.02uhid`
 - Download and Install Cosmovisor
 ```
 wget https://github.com/cosmos/cosmos-sdk/releases/download/cosmovisor%2Fv1.2.0/cosmovisor-v1.2.0-linux-amd64.tar.gz && tar -C /usr/local/bin/ -xzf cosmovisor-v1.2.0-linux-amd64.tar.gz
 ```
-- Export the following environment variables
+- Export the following environment variables needed by `cosmovisor`
 ```
+export DAEMON_NAME=hid-noded
 export DAEMON_PATH=<complete path of hid-noded binary>
 export DAEMON_HOME=$HOME/.hid-node
 ```
@@ -179,6 +179,7 @@ cp $DAEMON_PATH $DAEMON_HOME/cosmovisor/genesis/bin
       ```sh
       cosmovisor run start
       ```
+      > Note: `cosmovisor` looks for the environment variable `DAEMON_NAME` and `DAEMON_HOME`. Make sure to run the above command in the same terminal window where the said environment variables are set.
    - System Service
       - Change directory: `cd /etc/systemd/system`
       - Add the [Cosmovisor system service file](https://github.com/hypersign-protocol/hid-node/blob/main/contrib/hidnoded-cosmovisor.service) to `/etc/systemd/system` directory.
