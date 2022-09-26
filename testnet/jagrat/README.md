@@ -153,7 +153,7 @@ You can run the `hid-node` in either of the following ways:
 hid-noded init <validator-name>
 ```
 - Replace the contents of your `${HOME}/.hid-noded/config/genesis.json` with that of `testnet/jagrat/final_genesis.json` from the `master` branch of [repository](https://github.com/hypersign-protocol/networks).
-- Add `persistent_peers` or `seeds` in `${HOME}/.hid-noded/config/config.toml` from `testnet/jagrat/final_peers.json` from the `master` branch of [repository](https://github.com/hypersign-protocol/networks).
+- Add `persistent_peers` in `${HOME}/.hid-noded/config/config.toml` from `testnet/jagrat/final_peers.json` from the `master` branch of [repository](https://github.com/hypersign-protocol/networks).
 - Set the `minimum-gas-price` in `${HOME}/.hid-node/config/app.toml` to `0.02uhid`
 - Download and Install Cosmovisor
 ```
