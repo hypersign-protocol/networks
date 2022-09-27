@@ -1,5 +1,5 @@
 {
-  "genesis_time": "2022-09-26T14:04:48.735717263Z",
+  "genesis_time": "2022-09-28T16:30:00Z",
   "chain_id": "jagrat",
   "initial_height": "1",
   "consensus_params": {
@@ -33,14 +33,14 @@
       "accounts": [
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "hid1ajhhqtlxnzs9sr0j9up5gecdzkzpum0gqzkc8c",
+          "address": "hid1f6r0x3pljpl7pe76zzv36l0ksztqmdlth7zdk5",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "hid1qsd95dq3fx0lkk0p8wsszyeye4e5zxt5se84f7",
+          "address": "hid1xpcvskrcvczeu654vq9le772syc0sualj5agz0",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
@@ -139,6 +139,13 @@
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
           "address": "hid1vy7j9kwge6gl3kl2445ysgdy2m9eg29ewc0xk6",
+          "pub_key": null,
+          "account_number": "0",
+          "sequence": "0"
+        },
+        {
+          "@type": "/cosmos.auth.v1beta1.BaseAccount",
+          "address": "hid1029md7uknkcstjgj7zejusvn6vjvznzmn0kxkv",
           "pub_key": null,
           "account_number": "0",
           "sequence": "0"
@@ -446,13 +453,6 @@
         },
         {
           "@type": "/cosmos.auth.v1beta1.BaseAccount",
-          "address": "hid1sp54v3zry4df69648r2syas54axfzx0vsr9nxv",
-          "pub_key": null,
-          "account_number": "0",
-          "sequence": "0"
-        },
-        {
-          "@type": "/cosmos.auth.v1beta1.BaseAccount",
           "address": "hid1s3gm9chnu9rq8qgm0axg0jvcw5jag0kwry7hj9",
           "pub_key": null,
           "account_number": "0",
@@ -500,15 +500,6 @@
             {
               "denom": "uhid",
               "amount": "100000000000"
-            }
-          ]
-        },
-        {
-          "address": "hid1qsd95dq3fx0lkk0p8wsszyeye4e5zxt5se84f7",
-          "coins": [
-            {
-              "denom": "uhid",
-              "amount": "8800000000000"
             }
           ]
         },
@@ -603,6 +594,15 @@
           ]
         },
         {
+          "address": "hid1xpcvskrcvczeu654vq9le772syc0sualj5agz0",
+          "coins": [
+            {
+              "denom": "uhid",
+              "amount": "7200000000000"
+            }
+          ]
+        },
+        {
           "address": "hid1xx6yntl6funzergpsplh2ds20nhwfpk4cja9ly",
           "coins": [
             {
@@ -662,6 +662,15 @@
             {
               "denom": "uhid",
               "amount": "100000000000"
+            }
+          ]
+        },
+        {
+          "address": "hid1f6r0x3pljpl7pe76zzv36l0ksztqmdlth7zdk5",
+          "coins": [
+            {
+              "denom": "uhid",
+              "amount": "8800000000000"
             }
           ]
         },
@@ -738,7 +747,7 @@
           ]
         },
         {
-          "address": "hid10wn52m08j2hag4a0kgzfvqxdcdnn9qap73jvc0",
+          "address": "hid1029md7uknkcstjgj7zejusvn6vjvznzmn0kxkv",
           "coins": [
             {
               "denom": "uhid",
@@ -747,7 +756,7 @@
           ]
         },
         {
-          "address": "hid1sp54v3zry4df69648r2syas54axfzx0vsr9nxv",
+          "address": "hid10wn52m08j2hag4a0kgzfvqxdcdnn9qap73jvc0",
           "coins": [
             {
               "denom": "uhid",
@@ -986,15 +995,6 @@
             {
               "denom": "uhid",
               "amount": "100000000000"
-            }
-          ]
-        },
-        {
-          "address": "hid1ajhhqtlxnzs9sr0j9up5gecdzkzpum0gqzkc8c",
-          "coins": [
-            {
-              "denom": "uhid",
-              "amount": "7200000000000"
             }
           ]
         },
@@ -1256,67 +1256,6 @@
           },
           "signatures": [
             "DPyqG1aXVhBDElsNIyjzki97zdO2XctxtsA7+y+4HthEEANVW6ifWLU3+YtnWXnQAmGI6w9YHf2Ph1BxtJG88Q=="
-          ]
-        },
-        {
-          "body": {
-            "messages": [
-              {
-                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
-                "description": {
-                  "moniker": "Foundation 1",
-                  "identity": "",
-                  "website": "https://hypersign.id",
-                  "security_contact": "",
-                  "details": "Foundation Node of Hypersign Team"
-                },
-                "commission": {
-                  "rate": "0.900000000000000000",
-                  "max_rate": "1.000000000000000000",
-                  "max_change_rate": "0.010000000000000000"
-                },
-                "min_self_delegation": "100000000000",
-                "delegator_address": "hid1ajhhqtlxnzs9sr0j9up5gecdzkzpum0gqzkc8c",
-                "validator_address": "hidvaloper1ajhhqtlxnzs9sr0j9up5gecdzkzpum0glqpj08",
-                "pubkey": {
-                  "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "+lyPZkjKMfqmuGAiJsDdvuyyZ9WPwXirqRinLt+1uD4="
-                },
-                "value": {
-                  "denom": "uhid",
-                  "amount": "7200000000000"
-                }
-              }
-            ],
-            "memo": "1af081ebee49bac55729108e0358d3554e5f64a2@10.10.1.119:26656",
-            "timeout_height": "0",
-            "extension_options": [],
-            "non_critical_extension_options": []
-          },
-          "auth_info": {
-            "signer_infos": [
-              {
-                "public_key": {
-                  "@type": "/cosmos.crypto.secp256k1.PubKey",
-                  "key": "A6xCpUQ6LW4dU6vmcBhJoGtcuzDhpsvpJeUwaCjcldXZ"
-                },
-                "mode_info": {
-                  "single": {
-                    "mode": "SIGN_MODE_DIRECT"
-                  }
-                },
-                "sequence": "0"
-              }
-            ],
-            "fee": {
-              "amount": [],
-              "gas_limit": "200000",
-              "payer": "",
-              "granter": ""
-            }
-          },
-          "signatures": [
-            "oUAsecgPXx9gjqAMnK2IqN8btgV+Dv1MOAM+2FuNoph8DV5+2TH//zoQEIo0dq3hO8nkVv4VwuvJqLOhpjbD5w=="
           ]
         },
         {
@@ -2301,67 +2240,6 @@
               {
                 "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
                 "description": {
-                  "moniker": "SRG0Z10",
-                  "identity": "A316960A6DD169E2",
-                  "website": "https://t.me/srg_z12",
-                  "security_contact": "sergpsy00@gmail.com",
-                  "details": "Seeking truth together"
-                },
-                "commission": {
-                  "rate": "0.050000000000000000",
-                  "max_rate": "1.000000000000000000",
-                  "max_change_rate": "0.010000000000000000"
-                },
-                "min_self_delegation": "100000000000",
-                "delegator_address": "hid1sp54v3zry4df69648r2syas54axfzx0vsr9nxv",
-                "validator_address": "hidvaloper1sp54v3zry4df69648r2syas54axfzx0v0pjewn",
-                "pubkey": {
-                  "@type": "/cosmos.crypto.ed25519.PubKey",
-                  "key": "CDMv/qaFRefr2e1nMG6iLdluzWeQ0B4QdNsD/Pk+fZQ="
-                },
-                "value": {
-                  "denom": "uhid",
-                  "amount": "100000000000"
-                }
-              }
-            ],
-            "memo": "9028ae394a329f182542a35cb5ef192a51e56b76@185.173.157.42:26656",
-            "timeout_height": "0",
-            "extension_options": [],
-            "non_critical_extension_options": []
-          },
-          "auth_info": {
-            "signer_infos": [
-              {
-                "public_key": {
-                  "@type": "/cosmos.crypto.secp256k1.PubKey",
-                  "key": "AvxSPiIdkK0BO7MmEI+RhP4Klwo3gf3k7bBUHWqPvNRA"
-                },
-                "mode_info": {
-                  "single": {
-                    "mode": "SIGN_MODE_DIRECT"
-                  }
-                },
-                "sequence": "0"
-              }
-            ],
-            "fee": {
-              "amount": [],
-              "gas_limit": "200000",
-              "payer": "",
-              "granter": ""
-            }
-          },
-          "signatures": [
-            "yYTrakwchncP3W6eA2wN5PFlpj2i+1vBf4Y2Pz3N6jBTv8Ju4ym+PZJYLFp+PVfyXTsBOlKToblGP3rzvVbtVA=="
-          ]
-        },
-        {
-          "body": {
-            "messages": [
-              {
-                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
-                "description": {
                   "moniker": "STAVR",
                   "identity": "F2F91999ECCC092F",
                   "website": "https://github.com/obajay",
@@ -2508,7 +2386,7 @@
                 }
               }
             ],
-            "memo": "f3eaab835c004c3bc7119097de649cf35a14b48d@45.88.106.199:45656",
+            "memo": "f3eaab835c004c3bc7119097de649cf35a14b48d@45.88.106.199:26656",
             "timeout_height": "0",
             "extension_options": [],
             "non_critical_extension_options": []
@@ -2720,6 +2598,67 @@
           },
           "signatures": [
             "fa0jTEk5s+Tn9tLVG/BFDX7u8cuPtDVuY/aq2/sA6INVwQ2yDpHbW+0Fc7Ydrhw/G+9u8FD0gxEvArqgh7pT7w=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "Terminet",
+                  "identity": "",
+                  "website": "https://terminet.io/",
+                  "security_contact": "support@terminet.io",
+                  "details": ""
+                },
+                "commission": {
+                  "rate": "0.070000000000000000",
+                  "max_rate": "1.000000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "100000000000",
+                "delegator_address": "hid1029md7uknkcstjgj7zejusvn6vjvznzmn0kxkv",
+                "validator_address": "hidvaloper1029md7uknkcstjgj7zejusvn6vjvznzmvdpv7n",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "EyzSARXGKoj4qR47KHW9MAGE8XvpnbwdQ/+jhcSNwhU="
+                },
+                "value": {
+                  "denom": "uhid",
+                  "amount": "100000000000"
+                }
+              }
+            ],
+            "memo": "cf94099349980f9593a3f0362c85fe7c6eda8b14@10.122.22.17:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "A29Oyl8hWGGVEeT5SBuAFYVEJaR7JtrcGXx9T8VSRXAK"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "ihASAkn4Vy/S00klxhbkaEa/PY7jz02BzKCaC5VOO/NmhqW/n4nzj797W/zbBnrpTcxU907sZBgFsRMd2uRWvQ=="
           ]
         },
         {
@@ -3513,6 +3452,67 @@
           },
           "signatures": [
             "I3/H82ZGLqZ05vsLg/7XTcZLRmNIRilZ8ifNeqO9+e1TkiUEu7iUhYDATDJ0xH2T3spUtE8etvO2HoPo5dqUOA=="
+          ]
+        },
+        {
+          "body": {
+            "messages": [
+              {
+                "@type": "/cosmos.staking.v1beta1.MsgCreateValidator",
+                "description": {
+                  "moniker": "Foundation 1",
+                  "identity": "",
+                  "website": "https://hypersign.id",
+                  "security_contact": "",
+                  "details": "Foundation Node of Hypersign Team"
+                },
+                "commission": {
+                  "rate": "0.900000000000000000",
+                  "max_rate": "1.000000000000000000",
+                  "max_change_rate": "0.010000000000000000"
+                },
+                "min_self_delegation": "100000000000",
+                "delegator_address": "hid1xpcvskrcvczeu654vq9le772syc0sualj5agz0",
+                "validator_address": "hidvaloper1xpcvskrcvczeu654vq9le772syc0sualdk2z2s",
+                "pubkey": {
+                  "@type": "/cosmos.crypto.ed25519.PubKey",
+                  "key": "P4A6PpGrB3ynP2sXXt9HfKrRzWB5n4WrGdl6AeBP5Vg="
+                },
+                "value": {
+                  "denom": "uhid",
+                  "amount": "7200000000000"
+                }
+              }
+            ],
+            "memo": "d7c9b9a3c3a6c5f4ccdfb37a8358755b277271c1@10.10.1.119:26656",
+            "timeout_height": "0",
+            "extension_options": [],
+            "non_critical_extension_options": []
+          },
+          "auth_info": {
+            "signer_infos": [
+              {
+                "public_key": {
+                  "@type": "/cosmos.crypto.secp256k1.PubKey",
+                  "key": "Aj1vEbIkU7evY7k4QUu9tbsaa1dRmRE7ite8BX+EOgFm"
+                },
+                "mode_info": {
+                  "single": {
+                    "mode": "SIGN_MODE_DIRECT"
+                  }
+                },
+                "sequence": "0"
+              }
+            ],
+            "fee": {
+              "amount": [],
+              "gas_limit": "200000",
+              "payer": "",
+              "granter": ""
+            }
+          },
+          "signatures": [
+            "+z59H8C1ctqOVbQ7peWzSS1xm/C8T6QzV+Z7QLezq044RtAT2ZmiLpm73Tjow4lr7yEH/XlTEqFB2umv2hu3iw=="
           ]
         },
         {
@@ -4807,7 +4807,7 @@
         "min_deposit": [
           {
             "denom": "uhid",
-            "amount": "21310000000"
+            "amount": "21690000000"
           }
         ],
         "max_deposit_period": "172800s"
