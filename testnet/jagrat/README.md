@@ -1,3 +1,5 @@
+### [Important]: Following instructions are not maintained. For updated instructions, check [here](https://docs.hypersign.id/validator/running-a-testnet-validator-node)
+
 # Setting up a Validator Node for Jagrat Testnet
 
 ## Hardware Requirements
