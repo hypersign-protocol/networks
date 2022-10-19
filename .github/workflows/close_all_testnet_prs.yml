@@ -1,0 +1,13 @@
+name: Close All Pull Requests
+
+on: [workflow_dispatch]
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: crondaemon/close-pr@v1
+      with:
+        comment: "We are not accepting testnet gentx pull requests anymore"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
