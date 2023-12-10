@@ -1,5 +1,7 @@
 # Setting up a Validator Node for Prajna Testnet
 
+## Please note that Prajna Testnet Genesis ValSet participation is limited to Jagrat Testnet validators only
+
 ## Hardware Requirements
 * **Minimal**
     * 16 GB RAM
