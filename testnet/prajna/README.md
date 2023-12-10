@@ -63,24 +63,7 @@ You can view the key address information using the command: `hid-noded keys list
 ```
 hid-noded init <validator-name> --chain-id prajna-1
 ```
-- Run the following to change the coin denom from `stake` to `uhid` in the generated `genesis.json`
 
-```
-cat $HOME/.hid-node/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="uhid"' > $HOME/.hid-node/config/tmp_genesis.json && mv $HOME/.hid-node/config/tmp_genesis.json $HOME/.hid-node/config/genesis.json
-```
-```
-cat $HOME/.hid-node/config/genesis.json | jq '.app_state["gov"]["params"]["deposit_params"]["min_deposit"][0]["denom" ]="uhid"' > $HOME/.hid-node/config/tmp_genesis.json && mv $HOME/.hid-node/config/tmp_genesis.json $HOME/.hid-node/config/genesis.json
-```
-```
-cat $HOME/.hid-node/config/genesis.json | jq '.app_state["mint"]["params"]["mint_denom"]="uhid"' > $HOME/.hid-node/config/tmp_genesis.json && mv $HOME/.hid-node/config/tmp_genesis.json $HOME/.hid-node/config/genesis.json
-```
-```
-cat $HOME/.hid-node/config/genesis.json | jq '.app_state["staking"]["params"]["bond_denom"]="uhid"' > $HOME/.hid-node/config/tmp_genesis.json && mv $HOME/.hid-node/config/tmp_genesis.json $HOME/.hid-node/config/genesis.json
-```
-- Specify the chain namespace by running the following command
-```
-cat $HOME/.hid-node/config/genesis.json | jq '.app_state["ssi"]["chain_namespace"]="testnet"' > $HOME/.hid-node/config/tmp_genesis.json && mv $HOME/.hid-node/config/tmp_genesis.json $HOME/.hid-node/config/genesis.json
-```
 - Create a gentx account (Note that the stake must be `500000000000uhid`)
 ```
 hid-noded add-genesis-account <key-name> 500000000000uhid
