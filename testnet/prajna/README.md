@@ -67,7 +67,7 @@ hid-noded init <validator-name> --chain-id prajna-1
 hid-noded start
 ```
 
-Since the Foundation node has not abled state-sync service, we would suggest you to refer other Prajna Testnet validator's state-sync service to sync up your nodes quickly 
+Since the Foundation node has not enabled state-sync service, we would suggest you to refer other Prajna Testnet validator's state-sync service to sync up your nodes quickly 
 
 - Wait until your node is synced. Once your node, run the following command to promote your node to a validator node:
 
