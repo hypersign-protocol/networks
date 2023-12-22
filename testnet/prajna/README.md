@@ -53,7 +53,7 @@ hid-noded init <validator-name> --chain-id prajna-1
 
 - Generate keys by either running `hid-noded keys add <key-name>` or `hid-noded keys add <key-name> --recover` to regenerate keys with your [BIP39](https://github.com/bitcoin/bips/tree/master/bip-0039) mnemonic
 
-- Acquire some $HID tokens from the faucet which available on Hypersign's Official Discord Server. The name of the channel is `prajna-testnet-1`.
+- Acquire some $HID tokens from the faucet which available on Hypersign's Official Discord Server. The name of the channel is `prajna-faucet-1`.
 
 - Download the genesis from [here](https://github.com/hypersign-protocol/networks/blob/master/testnet/prajna/final_genesis.json) and save it as `genesis.json` in your `.hid-node` directory
 
