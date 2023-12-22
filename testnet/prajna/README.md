@@ -55,40 +55,42 @@ or
 
 You can view the key address information using the command: `hid-noded keys list`
 
-## Validator Setup (Pre Genesis Stage)
+## Validator Setup
 
-### Before Final Genesis Release
+- Initialize Node:
 
-- Initialize Node
 ```
 hid-noded init <validator-name> --chain-id prajna-1
 ```
 
-- Create a gentx account (Note that the stake must be `500000000000uhid`)
+- Generate keys by either running `hid-noded keys add <key-name>` or `hid-noded keys add <key-name> --recover` to regenerate keys with your [BIP39](https://github.com/bitcoin/bips/tree/master/bip-0039) mnemonic
+
+- Acquire some $HID tokens from the faucet which available on Hypersign's Official Discord Server. The name of the channel is `prajna-testnet-1`.
+
+- Download the genesis from [here](https://github.com/hypersign-protocol/networks/blob/master/testnet/prajna/final_genesis.json) and save it as `genesis.json` in your `.hid-node` directory
+
+- Set the `persistent_peers` in your `.hid-node/config/config.toml` file. Refer [here]() for the list of Testnet peers
+
+- Start your node:
+
 ```
-hid-noded add-genesis-account <key-name> 500000000000uhid
+hid-noded start
 ```
-- Create a gentx transaction. The `<stake-amount-in-uhid>` should be in `uhid`. (Note that the stake must be `500000000000uhid`)
+
+- Wait until your node is synced. Once your node, run the following command to promote your node to a validator node:
+
 ```
-hid-noded gentx <key-name> 500000000000uhid \
+hid-noded tx staking create-validator \
+--from <key-name> \
+--amount 1000000uhid \
+--pubkey "$(hid-noded comet show-validator)" \
 --chain-id prajna-1 \
 --moniker="<validator-name>" \
 --commission-max-change-rate=0.01 \
 --commission-max-rate=1.0 \
 --commission-rate=0.07 \
---min-self-delegation=10000000000 \
+--min-self-delegation="1000000" \
 --details="XXXXXXXX" \
 --security-contact="XXXXXXXX" \
 --website="XXXXXXXX"
 ```
-- Fork the [repository](https://github.com/hypersign-protocol/networks)
-- Copy the contents of `${HOME}/.hid-node/config/gentx/gentx-XXXXXXXX.json`.
-- Create a file `gentx-<validator-name-without-spaces>.json` under the `testnet/prajna/gentxs` folder in the forked repo and paste the copied text from the last step into the file.
-- Create a file `peer-<validator-name-without-spaces>.txt` under the `testnet/prajna/peers` directory in the forked repo.
-- Run `hid-noded comet show-node-id` and copy your Node ID.
-- Run `ifconfig` or `curl ipinfo.io/ip` and copy your publicly reachable IP address.
-- Form the complete node address in the format: `<node-id>@<publicly-reachable-ip>:<p2p-port>`. Example: `31a2699a153e60fcdbed8a47e060c1e1d4751616@<publicly-reachable-ip>:26656`. Note: The default P2P port is 26656. If you want to change the port configuration, open `${HOME}/.hid-node/config/config.toml` and under `[p2p]`, change the port in `laddr` attribute.
-- Paste the complete node address from the last step into the file `testnet/prajna/peers/peer-<validator-name-without-spaces>.txt`.
-- Create a Pull Request to the `master` branch of the [repository](https://github.com/hypersign-protocol/networks)
->**NOTE:** Pull Request will be merged by the maintainers to confirm the inclusion of the validator at the genesis. The final genesis file will be published under the file `testnet/prajna/final_genesis.json`. The final peers list will be published under the file `testnet/prajna/final_peers.txt`.
-
