@@ -45,16 +45,6 @@ make install
 hid-noded version
 ```
 
-## Generate Keys
-
-`hid-noded keys add <key-name>`
-
-or
-
-`hid-noded keys add <key-name> --recover` to regenerate keys with your [BIP39](https://github.com/bitcoin/bips/tree/master/bip-0039) mnemonic
-
-You can view the key address information using the command: `hid-noded keys list`
-
 ## Validator Setup
 
 - Initialize Node:
@@ -69,13 +59,15 @@ hid-noded init <validator-name> --chain-id prajna-1
 
 - Download the genesis from [here](https://github.com/hypersign-protocol/networks/blob/master/testnet/prajna/final_genesis.json) and save it as `genesis.json` in your `.hid-node` directory
 
-- Set the `persistent_peers` in your `.hid-node/config/config.toml` file. Refer [here]() for the list of Testnet peers
+- Set the `persistent_peers` in your `.hid-node/config/config.toml` file. Refer [here](https://github.com/hypersign-protocol/networks/blob/master/testnet/prajna/final_peers.txt) for the list of Testnet peers
 
 - Start your node:
 
 ```
 hid-noded start
 ```
+
+Since the Foundation node has not abled state-sync service, we would suggest you to refer other Prajna Testnet validator's state-sync service to sync up your nodes quickly 
 
 - Wait until your node is synced. Once your node, run the following command to promote your node to a validator node:
 
